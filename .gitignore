@@ -1,0 +1,5 @@
+/.resources/
+/assets/images/*
+!/assets/images/.gitkeep
+/content/images/*
+!/content/images/.gitkeep

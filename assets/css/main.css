@@ -1,0 +1,359 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* 背景 */
+#bgFrame {
+  min-height: 100vh;
+  padding: 30px;
+  background: linear-gradient(135deg, #6699FF, #66CC66);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ヘッダー */
+#pageHeader {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255,255,255,0.6);
+  margin-bottom: 30px;
+}
+#logo img {
+  max-width: 250px;
+  transition: transform 0.3s ease;
+}
+#logo img:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+#logo_caption {
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 10px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ナビゲーション */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 8px 15px;
+  transition: background 0.3s, border 0.3s;
+  border-radius: 5px;
+}
+nav ul li a:hover {
+  background-color: rgba(255,255,255,0.2);
+  border: 1px solid #66CC66;
+}
+
+/* メインコンテンツ */
+#content {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.95);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* セクションヘッダー */
+.section_header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: 2.2em;
+  color: #6699FF;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #66CC66;
+}
+
+/* お仕事セクション */
+.works {
+  margin-bottom: 40px;
+}
+.works .year-group {
+  margin-bottom: 20px;
+}
+.works .year-group h3 {
+  font-size: 1.8em;
+  color: #6699FF;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #66CC66;
+  padding-bottom: 5px;
+}
+.works .year-group ul {
+  list-style: none;
+  padding-left: 0;
+}
+.works .year-group li {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+/* 同人誌セクション */
+.doujinshi {
+  margin-bottom: 40px;
+}
+.subsection-title {
+  font-size: 1.8em;
+  color: #6699FF;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #66CC66;
+  padding-bottom: 5px;
+}
+
+/* 書籍記事 */
+.book {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-left: 6px solid #6699FF;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+}
+.book:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.book_header {
+  width: 100%;
+  background-color: rgba(102,153,255,0.1);
+  padding: 10px 15px;
+  border-bottom: 1px dashed #66CC66;
+}
+.book_date {
+  font-size: 1.1em;
+  color: #66CC66;
+}
+.book_image {
+  flex: 1 1 200px;
+  background-color: #eee;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 150px;
+  padding-top: 10px;
+}
+.book_image img {
+  width: 320px;
+  height: auto;
+}
+.book_data {
+  flex: 2 1 300px;
+  padding: 15px 20px;
+}
+.book_title {
+  font-size: 1.6em;
+  color: #6699FF;
+  margin-bottom: 10px;
+  position: relative;
+}
+.book_title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40px;
+  height: 3px;
+  background-color: #66CC66;
+}
+.book_format,
+.book_stock,
+.book_description {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* BOOTH ロゴ関連 */
+.booth-link {
+  text-decoration: none;
+  transition: transform 0.3s;
+  display: inline-block;
+  margin-left: 10px;
+}
+.booth-link:hover {
+  transform: scale(1.1);
+}
+.booth-logo {
+  height: 24px;
+  width: auto;
+  margin: 0 12px;
+}
+
+/* フッター */
+#pageFooter {
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 30px;
+  border-top: 2px solid rgba(255,255,255,0.6);
+  background-color: #222;
+  color: #fff;
+}
+#contact {
+  margin-bottom: 15px;
+}
+#contact h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+#contact p {
+  margin: 0;
+}
+#contact a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 8px 15px;
+  background-color: #000;
+  color: #6699FF;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+#contact a:hover {
+  background-color: #6699FF;
+  color: #000;
+}
+#copyright {
+  margin-top: 10px;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* --- 折りたたみ用共通スタイル --- */
+.collapsible {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.collapsible::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  pointer-events: none;
+}
+.collapsible.expanded {
+  max-height: 50000px !important;
+}
+.collapsible.expanded::after {
+  display: none;
+}
+
+/* 初期状態の高さ制限 */
+/* お仕事：15件分の高さ（例：450px）、下部150pxでフェードアウト */
+.works-collapsed {
+  max-height: 450px;
+}
+.works-collapsed::after {
+  height: 150px;
+}
+/* 同人誌：全体で5冊分の高さ（例：1360px）、下部640pxでフェードアウト */
+.books-collapsed {
+  max-height: 1360px;
+}
+.books-collapsed::after {
+  height: 640px;
+}
+
+/* --- スタイリッシュなトグルボタン --- */
+.toggle-button {
+  display: block;
+  margin: 15px auto 0;
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #6699FF;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+.toggle-button:hover {
+  background: #5577DD;
+  transform: translateY(-2px);
+}
+
+/* --- レスポンシブ対応 --- */
+@media screen and (max-width: 767px) {
+  #bgFrame {
+    padding: 15px;
+  }
+  #content {
+    max-width: 100%;
+    padding: 15px;
+    margin: 0 10px;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  .section-title {
+    font-size: 1.8em;
+  }
+  .book {
+    flex-direction: column;
+    align-items: center;
+  }
+  .book_image {
+    width: 50%;
+    padding-top: 10px;
+    margin-bottom: 1.6em;
+  }
+  .book_image img {
+    width: 100%;
+    height: auto;
+  }
+  .book_data {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}

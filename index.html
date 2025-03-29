@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SHOWTIME ―ショウタイム―</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/main.js" defer></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5243275457667394" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="bgFrame">
+      <header id="pageHeader">
+        <div id="logo">
+          <img src="assets/images/showtime_logo.png" alt="SHOWTIME ―ショウタイム―">
+          <div id="logo_caption">プリキュアの音楽とフォントと作画を研究しています。</div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#works">お仕事</a></li>
+            <li><a href="#doujinshi">同人誌</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main id="content">
+        <!-- お仕事セクション -->
+        <section class="works" id="works">
+          <header class="section_header">
+            <h1 class="section-title">お仕事</h1>
+          </header>
+          <!-- 初期表示：15件分の高さ（例：450px）、下部150pxでフェードアウト -->
+          <div id="works-list-container" class="collapsible works-collapsed"></div>
+          <button class="toggle-button" data-target="works-list-container">もっと表示する</button>
+        </section>
+        <!-- 同人誌セクション -->
+        <section class="doujinshi" id="doujinshi">
+          <header class="section_header">
+            <h1 class="section-title">同人誌</h1>
+          </header>
+          <!-- 同人誌全体の折りたたみ対象 -->
+          <div id="doujinshi-container" class="collapsible books-collapsed">
+            <!-- 新刊 -->
+            <section class="bookSection new" id="new">
+              <header class="section_header">
+                <h2 class="subsection-title">新刊</h2>
+              </header>
+              <div class="book-list new-books"></div>
+            </section>
+            <!-- 既刊 -->
+            <section class="bookSection old" id="old">
+              <header class="section_header">
+                <h2 class="subsection-title">既刊</h2>
+              </header>
+              <div class="book-list old-books"></div>
+            </section>
+          </div>
+          <button class="toggle-button" data-target="doujinshi-container">もっと表示する</button>
+        </section>
+      </main>
+      <footer id="pageFooter">
+        <section id="contact">
+          <h2>お問い合わせ</h2>
+          <p>
+            <a href="https://x.com/shota_" target="_blank">X: @shota_</a>
+            <a href="mailto:showtime@precure.tv">showtime@precure.tv</a>
+          </p>
+        </section>
+        <div id="copyright">
+          <p>© 2011 - <span id="year"></span> Shota (SHOWTIME). All rights reserved for original works.</p>
+          <p>サークル「SHOWTIME」代表・祥太が個人で運営しています。ABCアニメーション様、東映アニメーション様、その他各社様とは一切関係ございません。</p>
+          <p>パロディ対象となる各作品の権利は原作者様に帰属します。</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
