@@ -33,6 +33,7 @@ body {
 }
 #logo img {
   max-width: 250px;
+  height: auto;
   transition: transform 0.3s ease;
 }
 #logo img:hover {

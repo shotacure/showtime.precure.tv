@@ -1,0 +1,16 @@
+{
+  "name": "SHOWTIME ―ショウタイム―",
+  "short_name": "SHOWTIME",
+  "description": "プリキュアの音楽・フォント・作画を研究する同人サークル「SHOWTIME」の公式サイト。",
+  "lang": "ja",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6699FF",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
