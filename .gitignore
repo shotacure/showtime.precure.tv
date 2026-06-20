@@ -3,3 +3,7 @@
 !/assets/images/.gitkeep
 /content/images/*
 !/content/images/.gitkeep
+
+# 実デプロイスクリプト（値入り）。雛形は *.example を追跡
+/deploy.sh
+/deploy.ps1

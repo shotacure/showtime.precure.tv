@@ -1,0 +1,63 @@
+#!/bin/bash
+set -euo pipefail
+
+# =============================================================
+# Deploy script for showtime.precure.tv (S3 + CloudFront)
+# Usage:
+#   cp deploy.sh.example deploy.sh   # 値を埋める（deploy.sh は .gitignore 済み）
+#   ./deploy.sh
+# 前提: aws CLI、対象バケットへの権限を持つプロファイル
+# =============================================================
+
+# --- 設定（自分の値を入れる） ---
+SITE_BUCKET="YOUR_S3_BUCKET_NAME"                 # 例: showtime.precure.tv
+CF_DISTRIBUTION_ID="YOUR_CLOUDFRONT_DISTRIBUTION_ID"
+AWS_PROFILE_NAME="showtime-deployer"              # 空文字でデフォルトプロファイル
+
+# --- プロファイル設定 ---
+unset AWS_PROFILE
+PROFILE_OPT=""
+if [ -n "${AWS_PROFILE_NAME}" ]; then
+  PROFILE_OPT="--profile ${AWS_PROFILE_NAME}"
+  echo "Using AWS profile: ${AWS_PROFILE_NAME}"
+fi
+
+# --- 1. S3 同期（開発用ファイルは除外 / --delete でミラー） ---
+echo "Syncing to s3://${SITE_BUCKET} ..."
+aws s3 sync . "s3://${SITE_BUCKET}" \
+  --exclude ".git/*" \
+  --exclude ".github/*" \
+  --exclude ".resources/*" \
+  --exclude "tools/*" \
+  --exclude "node_modules/*" \
+  --exclude ".gitignore" \
+  --exclude ".gitattributes" \
+  --exclude "*.example" \
+  --exclude "deploy.sh" \
+  --exclude "deploy.ps1" \
+  --exclude "README.md" \
+  --exclude "LICENSE" \
+  --exclude "package.json" \
+  --exclude "VERSION" \
+  --exclude "*.gitkeep" \
+  --cache-control "public, max-age=3600" \
+  --delete \
+  ${PROFILE_OPT}
+
+# --- 2. .webmanifest の content-type を明示（自動判定されないため） ---
+echo "Fixing site.webmanifest content-type ..."
+aws s3 cp site.webmanifest "s3://${SITE_BUCKET}/site.webmanifest" \
+  --content-type "application/manifest+json" \
+  --cache-control "public, max-age=3600" \
+  --metadata-directive REPLACE \
+  ${PROFILE_OPT}
+
+# --- 3. CloudFront キャッシュ無効化 ---
+echo "Invalidating CloudFront cache ..."
+aws cloudfront create-invalidation \
+  --distribution-id "${CF_DISTRIBUTION_ID}" \
+  --paths "/*" \
+  --output text \
+  ${PROFILE_OPT}
+
+echo "Done!"
