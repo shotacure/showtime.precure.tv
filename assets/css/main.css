@@ -176,6 +176,8 @@ nav ul li a:hover {
 .book_image img {
   width: 320px;
   height: auto;
+  aspect-ratio: 1 / 1.414; /* B5/A5 縦長を想定して領域を予約しCLSを抑制 */
+  object-fit: contain;
 }
 .book_data {
   flex: 2 1 300px;
@@ -356,5 +358,17 @@ nav ul li a:hover {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
+  }
+}
+
+/* --- モーション軽減設定の尊重（背景アニメ・各種transitionを抑制） --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

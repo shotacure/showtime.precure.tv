@@ -27,7 +27,7 @@ function buildBookRecord(book) {
     book_format: `${book['判']}判 / ${book['印刷']} / ${book['総頁']}p`,
     book_description: book['概要'] ? book['概要'].replace(/\n/g, '<br>') : '',
     book_image: book['表紙'] ? `/content/images/${book['表紙']}` : '',
-    stockHtml: `<span class="stock-text" style="color: ${inStock ? '#66CC66' : '#FF6666'};">${inStock ? '在庫あり' : '在庫なし'}</span>`,
+    stockHtml: `<span class="stock-text" style="color: ${inStock ? '#2e7d32' : '#d32f2f'};">${inStock ? '在庫あり' : '在庫なし'}</span>`,
     boothHtml,
     sortDate: new Date(book['発行日']),
     sortPages: Number(book['総頁'] || 0)
