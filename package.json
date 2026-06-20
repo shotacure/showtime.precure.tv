@@ -1,0 +1,12 @@
+{
+  "name": "showtime.precure.tv",
+  "version": "1.0.0",
+  "description": "SHOWTIME ―ショウタイム― : プリキュアの音楽・フォント・作画研究サークルの公式サイト",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs"
+  },
+  "author": "Shota (SHOWTIME)",
+  "license": "SEE LICENSE IN LICENSE"
+}
