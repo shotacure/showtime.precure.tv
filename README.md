@@ -34,9 +34,18 @@ npm run build      # = node tools/build.mjs
 
 ## デプロイ
 
-`data/`・`assets/`・`content/`・各 HTML、およびサイトルートの SEO ファイル
-（`robots.txt` / `sitemap.xml` / `site.webmanifest` / `favicon.*` / `og-image.png` / `apple-touch-icon.png` / `icon-*.png`）
-を公開ディレクトリへ配置する。
+ホスティングは **AWS S3 + CloudFront**。初回のみ雛形をコピーして値（バケット名・CloudFront ID・
+AWS プロファイル）を設定する。`deploy.sh` / `deploy.ps1` は `.gitignore` 対象。
+
+```sh
+cp deploy.sh.example deploy.sh   # 値を編集（Windows は deploy.ps1.example）
+npm run build                     # data 更新時は先にビルド
+./deploy.sh                       # S3 sync(除外/Cache-Control) → webmanifest content-type → CloudFront 無効化
+```
+
+開発用ファイル（`.git` / `.resources` / `tools` / `README.md` / `package.json` / `VERSION` 等）は
+sync 時に除外される。表紙・ロゴ画像（`assets/images` / `content/images`）は git 管理外だがローカルに
+あるため sync 対象。
 
 ## リリース（git-flow）
 
